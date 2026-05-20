@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #22272b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+#header-esquerda {
+    display: flex;
+    text-align: center;
+    padding: 0 10px;
+}
+
+h1 {
+    color: #6ba5f7;
+    font-size: 32px;
+}
+
+#header-centro {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.link-header {
+    text-decoration: none;
+    color: #9fadbc;
+    font-weight: 600;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+.link-header:hover {
+    color: #6ba5f7;
+    text-decoration: overline;
+}
+
+#add-kanban {
+    text-decoration: none;
+    background-color: #6ba5f7;
+    font-size: 16px;
+    color: black;
+    padding: 32px 40px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+#add-kanban:hover {
+    background-color: #6ba5f7;
+    font-size: 18px;
+    padding: 31px 38px;;
+}
+
+#CriarKanban {
+    position: sticky;
+    top: 90px;
+    left: 0;
+    display: none;
+    justify-content: center; 
+    align-items: center;     
+    gap: 12px;              
+    padding: 20px;
+    background-color: #1d2125; 
+}
+#prioridadeKanban {
+    background-color: #22272b; 
+    border: 2px solid #454f59; 
+    color: #b6c2cf;            
+    padding: 8px 12px;         
+    border-radius: 4px;       
+    font-size: 14px;
+    outline: none;             
+    transition: border-color 0.2s;
+    width: 180px;             
+    cursor: pointer;
+}
+
+.prioridadeKanban:focus {
+    border-color: #579dff;    
+}
+
+#informacoes-como-adicionar {
+    background-color: #171a1d;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#h2-informacoes {
+    text-align: center;
+    color: #d2dde9;
+    padding-bottom: 5px;
+}
+
+#p-informacoes {
+    text-align: center;
+    color: #d2dde9;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#CriarKanban input {
+    background-color: #22272b; /* Cor idêntica ao seu header */
+    border: 2px solid #454f59; /* Borda sutil estilo Trello */
+    color: #b6c2cf;            
+    padding: 8px 12px;
+    border-radius: 4px;     
+    font-size: 14px;
+    outline: none;             
+    transition: border-color 0.2s;
+    width: 180px;             
+}
+
+#CriarKanban input:focus {
+    border-color: #579dff;   
+}
+
+#CriarKanban input::placeholder {
+    color: #9fadbc;
+    opacity: 0.7;
+}
+
+#CriarKanban button {
+    background-color: #579dff; 
+    color: #1d2125;            
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+#CriarKanban button:hover {
+    background-color: #85b8ff;
+}
+
+
+.Kanbanzinho {
+    margin-top: 50px;
+    
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #bcd6f7;
+    margin: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease
+}
+
+.HeaderKanbanzinho {
+    height: 50px;
+    background-color: #6ba5f7;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.NomeKanbanzinho{
+    color:black ;
+    padding-top: 10px;
+}
+
+#KanbansFazer,#KanbansProgresso,#KanbansConcluido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BodyKanbanzinho {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 200px;
+}
+.Kanbanzinho:hover{
+    width: 275px;
+    height: 325px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.prazoKanbanzinho {
+    margin-top: auto;
+    margin-bottom: 0 ;
+    text-align: right;
+    overflow-wrap: break-word;  
+    word-break: break-word;
+}
+.descKanbanzinho {
+    overflow-wrap: break-word; 
+    word-break: break-word;
+}
+
+.ButtonKanbanzinho{
+    background-color: #6da1f4;  
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);              
+    padding: 12px 24px;        
+    border: none;              
+    border-radius: 8px;        
+    font-size: 16px;           
+    font-weight: bold;         
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: auto;
+
+    
+}
+.ButtonKanbanzinho:hover{
+    background-color: #558ee3
+}
+
+.ButtonKanbanzinho:active {
+    transform: scale(0.95);    
+}
+
+#KanbansFazer{
+    background-color:#ffffff ;
+    min-height: 350px;    
+}
+
+#KanbansProgresso {
+    background-color: #f1f1f1;
+    min-height: 350px;    
+}
+
+#KanbansConcluido {
+    background-color: #ffffff;
+    min-height: 350px;  
+}
+
+.h2-fundobranco {
+    background-color: white;
+    color: #22272b;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.h2-fundocinza {
+    background-color: #f1f1f1;
+    color: #22272b;
+    font-size: 26px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+footer {
+    background-color: #22272b;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+#footer-conteudo h2 {
+    color: #6ba5f7;
+    margin-bottom: 15px;
+}
+
+#footer-conteudo p {
+    margin-bottom: 15px;
+    max-width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

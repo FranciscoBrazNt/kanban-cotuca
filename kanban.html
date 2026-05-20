@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="kanban.css">
+</head>
+
+<body>
+    <header>
+        <div id="header-esquerda"> 
+            <h1>Kanban</h1>
+        </div>
+
+        <div id="header-centro">
+            <a href="kanban.html" class="link-header">Kanban <i class="fa-solid fa-chevron-down icone-seta"></i></a>
+            <a href="desc.html" class="link-header">Descrição <i class="fa-solid fa-chevron-down icone-seta"></i></a>
+        </div>
+
+        <div id="header-direita">
+            <button id="add-kanban"><i class="fa-solid fa-location-arrow"></i> Adicionar Kanban </button>
+        </div>
+    </header>
+
+    <main>
+        <form id="CriarKanban">
+            <input type="text" name="nome" placeholder="Atividade" maxlength="20" id="nomeCKanban">
+            <input type="text" name="descricao" placeholder="Descrição" maxlength="200" id="descCKanban">
+            <input type="number" name="prazo" placeholder="Prazo" id="prazoCKanban">
+            <select name="prioridade" id="prioridadeKanban">
+                <option value="Baixa">Baixa</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+
+            <button type="submit" id="SubmitKanban">Criar</button>
+        </form>
+
+        <div id="informacoes-como-adicionar">
+            <h2 id="h2-informacoes">Como adicionar</h2>
+            <p id="p-informacoes">Para gerenciar suas tarefas, clique no botão <strong>"Adicionar Kanban"</strong> localizado no canto superior direito do cabeçalho e preencha os campos obrigatórios com os valores solicitados. Deseja entender a metodologia por trás deste projeto? Navegue até a aba Descrição no menu superior para saber mais.</p>
+        </div>
+
+        <div id="TodosKanbans">
+            <h2 class="h2-fundobranco">A fazer :</h2>
+            <div id="KanbansFazer">
+            </div>
+            
+            <h2 class="h2-fundocinza">Em progresso :</h2>
+            <div id="KanbansProgresso">
+            </div>
+
+            <h2 class="h2-fundobranco">Feito :</h2>
+            <div id="KanbansConcluido">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer-conteudo">
+            <h2>Kanban Project</h2>
+            <p id="cotuca">Projeto desenvolvido em HTML, CSS e JavaScript no Colégio Técnico da Unicamp - Campinas na disciplina Desenvolvimento para Internet da professora Patrícia Gagliardo.</p>
+            <p id="creditos">Desenvolvido por <strong>Davi Missola</strong> e <strong>Francisco Braz</strong>.</p>
+        </div>
+    </footer>
+    <script src="kanban.js"></script>
+</body>
+
+</html>
