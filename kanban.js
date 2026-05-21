@@ -1,160 +1,165 @@
-let nomes = ["Criar uma atividade"];
-let descricoes = ["Esta é uma atividade demonstrativa. Use o formulário acima para criar novas tarefas."];
-let prazos = [365];
-let status = ["Fazer","Progresso","Feito"]
-
-let listaDeAtividades = [];
-let novoKanban =[];
 const formulario = document.getElementById("CriarKanban")
-let submit = document.getElementById("SubmitKanban")
-let addKanban = document.getElementById("add-kanban")
-let TextoBotao = ["Começar","Feito","Excluir"]
+const enviar = document.getElementById("SubmitKanban")
 
+let nomes = [];
+let descricoes = [""];
+let prazos = [];
+let situacao = [];
+let prioridade = [];
+let listaDeAtividades = [];
 const DestinoFazer = document.getElementById("KanbansFazer");
 const DestinoProgresso = document.getElementById("KanbansProgresso");
 const DestinoConcluido = document.getElementById("KanbansConcluido");
-let destinos = [DestinoFazer,DestinoProgresso,DestinoConcluido]
+
 
 
 
 for (let i = 0; i < nomes.length; i++) {
-   let atividadeInicial = {
-        id: i,
+    let novoCard = {
         nome: nomes[i],
         descricao: descricoes[i],
         prazo: prazos[i],
-        status: "Fazer", 
-        prioridade: "Baixa"
-    };
-    listaDeAtividades.push(atividadeInicial)
-    AtualizarTela(atividadeInicial)
+        status: situacao[i],
+        prioridade: prioridade[i],
+    }
+    listaDeAtividades.push(novoCard)
 }
 
-function KanbanFeito(idAtividade){
-    let atividade = listaDeAtividades.find(item => item.id === idAtividade);
-    let kbAntigo = document.getElementById("Kb" + idAtividade) 
+function MudarStatusProgressivo(idCard) {
+    let Card = listaDeAtividades.find(item => item.id === idCard)
 
-    if (kbAntigo){
-        kbAntigo.remove();
+    if (Card.status === "Fazer") { Card.status = "Progresso" }
+    else if (Card.status === "Progresso") { Card.status = "Feito" }
+    else { Card.status = "Fazer" }
+    DesenharCards();
+}
+
+function MudarStatusRetrogrado(idCard) {
+    let Card = listaDeAtividades.find(item => item.id === idCard)
+    if (Card.status === "Progresso") { Card.status = "Fazer" }
+    else { Card.status = "Progresso" }
+    DesenharCards();
+}
+
+
+function DesenharCards() {
+
+    let CardFazer = listaDeAtividades.filter(item => item.status === "Fazer")
+    let CardProgresso = listaDeAtividades.filter(item => item.status === "Progresso")
+    let CardFeito = listaDeAtividades.filter(item => item.status === "Feito")
+
+
+    DestinoFazer.innerHTML = "";
+    DestinoProgresso.innerHTML = "";
+    DestinoConcluido.innerHTML = "";
+
+
+    for (let i = 0; i < CardFazer.length; i++) {
+        DestinoFazer.innerHTML += `
+            <div class="Kanbanzinho" id="KbF${i}">
+                <div class="HeaderKanbanzinho" id="HdF${i}">
+                    <h3 class="NomeKanbanzinho"> ${CardFazer[i].nome} </h3>
+                </div>
+                <div class="BodyKanbanzinho">
+                    <h3 class="descKanbanzinho"> ${CardFazer[i].descricao} </h3>
+                    <h3 class="prazoKanbanzinho"> ${CardFazer[i].prazo} Dias </h3>
+                    <button class="ButtonKanbanzinho" id="ButtonP${CardFazer[i]}" type="button" onclick="MudarStatusProgressivo(${CardFazer[i].id})">Começar Atividade</button>
+                </div>
+            </div>`;
     }
-    if (atividade){
-        if (atividade.status === "Fazer"){
-            atividade.status = "Progresso";
-            AtualizarTela(atividade)
-            atualizarKanban(idAtividade,atividade.status)
-            
-        }
-        else if (atividade.status === "Progresso"){
-            atividade.status = "Feito"
-            AtualizarTela(atividade)
-            atualizarKanban(idAtividade,atividade.status)
-        }
-        else{
-            kbAntigo.remove();
-        }
+
+    for (let i = 0; i < CardProgresso.length; i++) {
+        DestinoProgresso.innerHTML += `
+            <div class="KanbanzinhoP" id="KbP${i}">
+                <div class="HeaderKanbanzinhoP" id="HdP${i}">
+                    <h3 class="NomeKanbanzinho"> ${CardProgresso[i].nome} </h3>
+                </div>
+                <div class="BodyKanbanzinhoP">
+                    <h3 class="descKanbanzinho"> ${CardProgresso[i].descricao} </h3>
+                    <h3 class="prazoKanbanzinho"> ${CardProgresso[i].prazo} Dias </h3>
+                    <div class="ContainerBotoes">
+                        <button 
+                            class="ButtonKanbanzinhoP"
+                            onclick="MudarStatusRetrogrado(${CardProgresso[i].id})">
+                            Marcar como Fazer
+                        </button>
+
+                        <button 
+                            class="ButtonKanbanzinhoP"
+                            onclick="MudarStatusProgressivo(${CardProgresso[i].id})">
+                            Marcar como Feito
+                        </button>
+                    </div> 
+                </div>
+            </div>`;
+    }
+    for (let i = 0; i < CardFeito.length; i++) {
+        DestinoConcluido.innerHTML += `
+            <div class="KanbanzinhoC" id="KbC${i}">
+                <div class="HeaderKanbanzinhoC" id="HdC${i}">
+                    <h3 class="NomeKanbanzinho"> ${CardFeito[i].nome} </h3>
+                </div>
+                <div class="BodyKanbanzinhoC">
+                    <h3 class="descKanbanzinho"> ${CardFeito[i].descricao} </h3>
+                    <h3 class="prazoKanbanzinho"> ${CardFeito[i].prazo} Dias </h3>
+
+                    <div class="ContainerBotoes">
+                        <button 
+                            class="ButtonKanbanzinhoC"
+                            onclick="MudarStatusRetrogrado(${CardFeito[i].id})">
+                            Marcar como em Progresso
+                        </button>
+                        <button 
+                            class="ButtonKanbanzinhoC"
+                            onclick="ExcluirCard(${CardFeito[i].id})">
+                            Excluir Atividade
+                        </button>
+                    </div>
+                </div>
+            </div>`;
     }
 }
-function atualizarKanban(id,status){
-        let kb = document.getElementById("Kb" + id)
-        let hd = document.getElementById("Hd" + id)
-        let bt = document.getElementById("Button" + id)
-    if (status == "Fazer"){
-        kb.style.backgroundColor = "#bcd6f7"
-        hd.style.backgroundColor = "#558ee3"
-        bt.style.backgroundColor = "#558ee3"}
-    else if (status == "Progresso"){
-        kb.style.backgroundColor = "#f6f7bcff"
-        hd.style.backgroundColor = "#f4f26dff"
-        bt.style.backgroundColor = "#f4f26dff"}
-    else {
-        kb.style.backgroundColor = "#c3fae8";
-        hd.style.backgroundColor = "#51c560ff";
-        bt.style.backgroundColor = "#51c560ff";
-    }
 
-    }
-
-function CKanban(e){
+function adicionarCard(e) {
     e.preventDefault();
-    let nomeForms =  document.getElementById("nomeCKanban").value;
-    let descricaoForms =  document.getElementById("descCKanban").value;
+
+    let nomeForms = document.getElementById("nomeCKanban").value;
+    let descForms = document.getElementById("descCKanban").value;
     let prazoForms = Number(document.getElementById("prazoCKanban").value);
+    let statusForms = document.getElementById("statusKanban").value;
     let prioridadeForms = document.getElementById("prioridadeKanban").value;
-    let statusForms = "Fazer"
-    
-
-    if (nomeForms !== "" && descricaoForms !== "" && prazoForms !== "") 
-        {nomes.push(nomeForms)
-        descricoes.push(descricaoForms)
-        prazos.push(prazoForms)
-        
-
-        novoKanban = {
-            id: listaDeAtividades.length,
+    if (nomeForms != "" && descForms != "" &&  prazoForms != 0 ){
+        let novoCard = {
+            id: Date.now(),
             nome: nomeForms,
-            descricao: descricaoForms,
+            descricao: descForms,
             prazo: prazoForms,
             status: statusForms,
-            prioridade: prioridadeForms
+            prioridade: prioridadeForms,
         }
-        listaDeAtividades.push(novoKanban);
-        AtualizarTela(novoKanban,novoKanban.prioridade);
-        atualizarKanban(novoKanban.id,novoKanban.status)
+        listaDeAtividades.push(novoCard);
         formulario.reset();
-        };  
-
+        DesenharCards();
+    }
     
-    
-    
-}
-function AtualizarTela(atividade,cor){
-    const destinoCorreto = obterDestino(atividade.status);
-    const texto = ObterTexto(atividade.status);
-    let CorPrioridade = ObterCor(cor)  
 
-    destinoCorreto.innerHTML += `
-        <div class="Kanbanzinho" id="Kb${atividade.id}">
-            <div class="HeaderKanbanzinho" id="Hd${atividade.id}">
-                <h3 class="NomeKanbanzinho"> ${atividade.nome} </h3>
-            </div>
-            <div class="BodyKanbanzinho">
-                <h3 class="descKanbanzinho"> ${atividade.descricao} </h3>
-                <h3 class="prazoKanbanzinho"> ${atividade.prazo} Dias </h3>
-                <h3 class="NivelKanban">Prioridade: <span style="color: ${CorPrioridade}">${atividade.prioridade} </span> </h3>
-
-                <button class="ButtonKanbanzinho" id="Button${atividade.id}" type="Button" onclick="KanbanFeito(${atividade.id})"> ${texto} </button>
-            </div>
-        </div>`;
-}
-
-function mostrarForms(){
-    if (formulario.style.display == "flex")
-        {formulario.style.display = "none"}
-    else   
-        {formulario.style.display = "flex"}
-    
-}
-function obterDestino(status){
-    if (status == "Progresso") return DestinoProgresso;
-    if (status == "Feito") return DestinoConcluido;
-    return DestinoFazer
-}
-
-function deleteKb(){
-    
-}
-function ObterTexto(statusKb){
-    if (statusKb == "Fazer") return TextoBotao[0];
-    if (statusKb == "Progresso") return TextoBotao[1];
-    return TextoBotao [2]
-}
-
-function ObterCor(prioridade){
-    if (prioridade == "Baixa") return "#5893ff"
-    if (prioridade == "Media") return "#ffef94"
-    return "#f5604c"
 }
 
 
-submit.addEventListener("click", CKanban)
-addKanban.addEventListener("click",mostrarForms)
+
+
+
+function mostrarForms() {
+    if (formulario.style.display == "flex") { formulario.style.display = "none" }
+    else { formulario.style.display = "flex" }
+}
+
+function ExcluirCard(cardId){
+    listaDeAtividades = listaDeAtividades.filter(item => item.id !== cardId)
+    DesenharCards();
+}
+
+let addKanban = document.getElementById("add-kanban")
+addKanban.addEventListener("click", mostrarForms)
+enviar.addEventListener("click", adicionarCard)
+
