@@ -74,7 +74,7 @@ h1 {
     padding: 20px;
     background-color: #1d2125; 
 }
-#prioridadeKanban {
+.SelectKanban {
     background-color: #22272b; 
     border: 2px solid #454f59; 
     color: #b6c2cf;            
@@ -192,10 +192,18 @@ h1 {
     flex-direction: column;
     flex-grow: 1;
     height: 200px;
+    
 }
 .Kanbanzinho:hover{
-    width: 275px;
-    height: 325px;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+}
+.KanbanzinhoP:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+}
+.KanbanzinhoC:hover{
+    transform: scale(1.05);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -226,6 +234,173 @@ h1 {
 
     
 }
+.KanbanzinhoP {
+    margin-top: 50px;
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #f7efbc;
+    margin: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+}
+
+.KanbanzinhoC {
+    margin-top: 50px;
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #c8f7bc;
+    margin: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+}
+.KanbanzinhoP {
+    margin-top: 50px;
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #f7efbc;
+
+    margin: 25px;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+.HeaderKanbanzinhoP {
+    height: 50px;
+    background-color: #e7d85c;
+
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.BodyKanbanzinhoC {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 200px;
+
+    background-color: #c8f7bc;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.ButtonKanbanzinhoP {
+    flex: 1;
+
+    background-color: #e7d85c;
+    color: #22272b;
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+
+    padding: 12px 0;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.ButtonKanbanzinhoP:hover {
+    background-color: #d8c94a;
+}
+
+.ButtonKanbanzinhoC {
+    flex: 1;
+
+    background-color: #73c95c;
+    color: #22272b;
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+
+    padding: 12px 0;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.ButtonKanbanzinhoC:active {
+    transform: scale(0.95); 
+}
+.ButtonKanbanzinhoP:active {
+    transform: scale(0.95); 
+}
+.BodyKanbanzinhoP {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    height: calc(100% - 50px);
+
+    background-color: #f7efbc;
+
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.ContainerBotoes {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+.HeaderKanbanzinhoC {
+    height: 50px;
+    background-color: #73c95c;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.ButtonKanbanzinhoC:hover {
+    background-color: #63b14f;
+}
+
 .ButtonKanbanzinho:hover{
     background-color: #558ee3
 }
