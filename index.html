@@ -17,7 +17,7 @@
         </div>
 
         <div id="header-centro">
-            <a href="index.html" class="link-header">Kanban <i class="fa-solid fa-chevron-down icone-seta"></i></a>
+            <a href="kanban.html" class="link-header">Kanban <i class="fa-solid fa-chevron-down icone-seta"></i></a>
             <a href="desc.html" class="link-header">Descrição <i class="fa-solid fa-chevron-down icone-seta"></i></a>
         </div>
 
@@ -31,10 +31,15 @@
             <input type="text" name="nome" placeholder="Atividade" maxlength="20" id="nomeCKanban">
             <input type="text" name="descricao" placeholder="Descrição" maxlength="200" id="descCKanban">
             <input type="number" name="prazo" placeholder="Prazo" id="prazoCKanban">
-            <select name="prioridade" id="prioridadeKanban">
+            <select name="prioridade" id="prioridadeKanban" class="SelectKanban">
                 <option value="Baixa">Baixa</option>
                 <option value="Media">Media</option>
                 <option value="Alta">Alta</option>
+            </select>
+            <select name="status" id="statusKanban" class="SelectKanban">
+                <option value="Fazer">Fazer</option>
+                <option value="Progresso">Progresso</option>
+                <option value="Feito">Feito</option>
             </select>
 
             <button type="submit" id="SubmitKanban">Criar</button>
@@ -67,7 +72,7 @@
             <p id="creditos">Desenvolvido por <strong>Davi Missola</strong> e <strong>Francisco Braz</strong>.</p>
         </div>
     </footer>
-    <script src="kanban.js"></script>
+    <script src="kanban2.js"></script>
 </body>
 
 </html>
