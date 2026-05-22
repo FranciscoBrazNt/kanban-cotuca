@@ -13,6 +13,8 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    width: 100%;
+    z-index: 100;
 }
 
 #header-esquerda {
@@ -73,6 +75,7 @@ h1 {
     gap: 12px;              
     padding: 20px;
     background-color: #1d2125; 
+    z-index: 99;
 }
 .SelectKanban {
     background-color: #22272b; 
@@ -197,10 +200,13 @@ h1 {
 .Kanbanzinho:hover{
     transform: scale(1.05);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+    border-left: 5px
+
 }
 .KanbanzinhoP:hover{
     transform: scale(1.05);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+    
 }
 .KanbanzinhoC:hover{
     transform: scale(1.05);
@@ -339,7 +345,6 @@ h1 {
 
 .ButtonKanbanzinhoC {
     flex: 1;
-
     background-color: #73c95c;
     color: #22272b;
 
