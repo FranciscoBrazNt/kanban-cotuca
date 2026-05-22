@@ -13,6 +13,8 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    width: 100%;
+    z-index: 100;
 }
 
 #header-esquerda {
@@ -50,8 +52,9 @@ h1 {
 #add-kanban {
     text-decoration: none;
     background-color: #6ba5f7;
+    font-size: 16px;
     color: black;
-    padding: 34px 40px;
+    padding: 32px 40px;
     font-weight: bold;
     transition: 0.3s ease;
 }
@@ -59,155 +62,387 @@ h1 {
 #add-kanban:hover {
     background-color: #6ba5f7;
     font-size: 18px;
-    padding: 33px 38px;;
+    padding: 31px 38px;;
 }
 
-
-#hero {
-    background-color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 60px;
-}
-
-#hero-texto {
-    width: 500px;
-}
-
-#organize-tarefas {
-    font-size: 45px;
-    margin-bottom: 20px;
-}
-
-#kanban-metodologia {
-    font-size: 18px;
-    line-height: 28px;
-    color: #555;
-}
-
-#imagem-computador {
-    width: 500px;
-    border-radius: 10px;
-}
-
-
-#sobre-kanban {
-    background-color: #f1f1f1;
-    padding: 60px;
-}
-
-#sobre-kanban h2 {
-    font-size: 35px;
-    margin-bottom: 20px;
-}
-
-#sobre-kanban p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-
-#funcionamento {
-    background-color: white;
-    padding: 60px;
-}
-
-#funcionamento h2 {
-    font-size: 35px;
-    margin-bottom: 40px;
-}
-
-.cards-funcionamento {
-    display: flex;
-    justify-content: space-between;
-}
-
-.card {
-    background-color: #f1f1f1;
-    width: 28%;
-    padding: 25px;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.card i {
-    font-size: 35px;
-    color: #6ba5f7;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #555;
-}
-
-
-#beneficios {
-    background-color: #f1f1f1;
-    padding: 60px;
-}
-
-#beneficios h2 {
-    font-size: 35px;
-    margin-bottom: 40px;
-}
-
-#lista-beneficios {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.beneficio {
-    background-color: white;
+#CriarKanban {
+    position: sticky;
+    top: 90px;
+    left: 0;
+    display: none;
+    justify-content: center; 
+    align-items: center;     
+    gap: 12px;              
     padding: 20px;
+    background-color: #1d2125; 
+    z-index: 99;
+}
+.SelectKanban {
+    background-color: #22272b; 
+    border: 2px solid #454f59; 
+    color: #b6c2cf;            
+    padding: 8px 12px;         
+    border-radius: 4px;       
+    font-size: 14px;
+    outline: none;             
+    transition: border-color 0.2s;
+    width: 180px;             
+    cursor: pointer;
+}
+
+.prioridadeKanban:focus {
+    border-color: #579dff;    
+}
+
+#informacoes-como-adicionar {
+    background-color: #171a1d;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#h2-informacoes {
+    text-align: center;
+    color: #d2dde9;
+    padding-bottom: 5px;
+}
+
+#p-informacoes {
+    text-align: center;
+    color: #d2dde9;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#CriarKanban input {
+    background-color: #22272b; /* Cor idêntica ao seu header */
+    border: 2px solid #454f59; /* Borda sutil estilo Trello */
+    color: #b6c2cf;            
+    padding: 8px 12px;
+    border-radius: 4px;     
+    font-size: 14px;
+    outline: none;             
+    transition: border-color 0.2s;
+    width: 180px;             
+}
+
+#CriarKanban input:focus {
+    border-color: #579dff;   
+}
+
+#CriarKanban input::placeholder {
+    color: #9fadbc;
+    opacity: 0.7;
+}
+
+#CriarKanban button {
+    background-color: #579dff; 
+    color: #1d2125;            
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+#CriarKanban button:hover {
+    background-color: #85b8ff;
+}
+
+
+.Kanbanzinho {
+    margin-top: 50px;
+    
+
     width: 250px;
-    border-radius: 10px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #bcd6f7;
+    margin: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease
+}
+
+.HeaderKanbanzinho {
+    height: 50px;
+    background-color: #6ba5f7;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     text-align: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.NomeKanbanzinho{
+    color:black ;
+    padding-top: 10px;
 }
 
-.beneficio i {
-    color: #6ba5f7;
-    margin-right: 10px;
+#KanbansFazer,#KanbansProgresso,#KanbansConcluido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BodyKanbanzinho {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 200px;
+    
+}
+.Kanbanzinho:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+    border-left: 5px
+
+}
+.KanbanzinhoP:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+    
+}
+.KanbanzinhoC:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
 }
 
-
-#exemplo {
-    background-color: white;
-    padding: 60px;
+.prazoKanbanzinho {
+    margin-top: auto;
+    margin-bottom: 0 ;
+    text-align: right;
+    overflow-wrap: break-word;  
+    word-break: break-word;
+}
+.descKanbanzinho {
+    overflow-wrap: break-word; 
+    word-break: break-word;
 }
 
-#exemplo h2 {
-    font-size: 35px;
-    margin-bottom: 40px;
+.ButtonKanbanzinho{
+    background-color: #6da1f4;  
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);              
+    padding: 12px 24px;        
+    border: none;              
+    border-radius: 8px;        
+    font-size: 16px;           
+    font-weight: bold;         
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: auto;
+
+    
+}
+.KanbanzinhoP {
+    margin-top: 50px;
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #f7efbc;
+    margin: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
 }
 
-#quadro-kanban {
+.KanbanzinhoC {
+    margin-top: 50px;
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #c8f7bc;
+    margin: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+}
+.KanbanzinhoP {
+    margin-top: 50px;
+
+    width: 250px;
+    min-width: 200px;
+    max-width: 400px;
+
+    height: 300px;
+
+    border-radius: 25px;
+    background-color: #f7efbc;
+
+    margin: 25px;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+.HeaderKanbanzinhoP {
+    height: 50px;
+    background-color: #e7d85c;
+
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.BodyKanbanzinhoC {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 200px;
+
+    background-color: #c8f7bc;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.ButtonKanbanzinhoP {
+    flex: 1;
+
+    background-color: #e7d85c;
+    color: #22272b;
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+
+    padding: 12px 0;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.ButtonKanbanzinhoP:hover {
+    background-color: #d8c94a;
+}
+
+.ButtonKanbanzinhoC {
+    flex: 1;
+    background-color: #73c95c;
+    color: #22272b;
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+
+    padding: 12px 0;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.ButtonKanbanzinhoC:active {
+    transform: scale(0.95); 
+}
+.ButtonKanbanzinhoP:active {
+    transform: scale(0.95); 
+}
+.BodyKanbanzinhoP {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    height: calc(100% - 50px);
+
+    background-color: #f7efbc;
+
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.ContainerBotoes {
+    margin-top: auto;
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
 }
 
-.coluna {
+.HeaderKanbanzinhoC {
+    height: 50px;
+    background-color: #73c95c;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.ButtonKanbanzinhoC:hover {
+    background-color: #63b14f;
+}
+
+.ButtonKanbanzinho:hover{
+    background-color: #558ee3
+}
+
+.ButtonKanbanzinho:active {
+    transform: scale(0.95);    
+}
+
+#KanbansFazer{
+    background-color:#ffffff ;
+    min-height: 350px;    
+}
+
+#KanbansProgresso {
     background-color: #f1f1f1;
-    width: 28%;
-    padding: 20px;
-    border-radius: 10px;
+    min-height: 350px;    
 }
 
-.coluna h3 {
-    margin-bottom: 20px;
+#KanbansConcluido {
+    background-color: #ffffff;
+    min-height: 350px;  
 }
 
-.tarefa {
+.h2-fundobranco {
     background-color: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    color: #22272b;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.h2-fundocinza {
+    background-color: #f1f1f1;
+    color: #22272b;
+    font-size: 26px;
+    padding-top: 10px;
+    padding-left: 30px;
 }
 
 footer {
@@ -228,14 +463,4 @@ footer {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-}
-
-#redes a {
-    color: white;
-    font-size: 25px;
-    margin: 0 10px;
-}
-
-#redes {
-    margin-bottom: 20px;
 }
